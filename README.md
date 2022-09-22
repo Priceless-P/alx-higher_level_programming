@@ -1,2 +1,2 @@
-# alx-higher_level_programming
-ALX higher level programming language
+# Higher-level programming - Python
+This repository contains programs written for the higher-level programming track at ALX
