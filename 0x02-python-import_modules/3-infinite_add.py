@@ -2,6 +2,7 @@
 # 3_infinite.py
 
 if __name__ == "__main__":
+    """ Prints the result of the addition of all arguments """
     import sys
     argvs = imt(sys.argv)
     count = 0

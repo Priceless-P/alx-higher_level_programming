@@ -2,6 +2,7 @@
 # 2_args.py
 
 if __name__ == "__main__":
+    """ Prints the number of and the list of its arguments """
     import sys
     total = len(sys.argv)-1
     if total == 0:
