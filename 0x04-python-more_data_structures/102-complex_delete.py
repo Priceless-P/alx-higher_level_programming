@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
+
 def complex_delete(a_dictionary, value):
     """Delete keys with a specific value in a dictionary."""
     list_keys = list(a_dictionary.keys())
