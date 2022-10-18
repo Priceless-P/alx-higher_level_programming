@@ -46,7 +46,7 @@ If the number of arguments is not three, the program prints Usage: ./100-my_calc
 Without using print, eval, open, or sys.
 8. ByteCode -> Python #3
 
-102-magic_calculation.py: Python function matching exactly a bytecode provided by Holberton School.
+102-magic_calculation.py: Python function matching exactly a bytecode.
 9. Fast alphabet
 
 103-fast_alphabet.py: Python program that prints the alphabet in uppercase, followed by a new line.
