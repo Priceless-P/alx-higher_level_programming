@@ -1,7 +1,15 @@
 #!/usr/bin/python3
 
+"""Define a class Square."""
+
+
 class Square:
     def __init__(self, size=0):
+        """Initialize a new square.
+
+        Args:
+            size (int): The size of the new square.
+        """
         self.__size = size
 
     def area(self):
@@ -9,10 +17,15 @@ class Square:
 
     @property
     def size(self):
+        """
+        The `size` property returns the value of the private `__size` attribute.
+        :return: The size of the object.
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """Get/set the current size of the square."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
