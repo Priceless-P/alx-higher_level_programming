@@ -4,6 +4,8 @@
 
 
 class Square:
+    """Represent a square."""
+    
     def __init__(self, size=0):
         """Initialize a new square.
 
@@ -19,7 +21,6 @@ class Square:
     def size(self):
         """
         The `size` property returns the value of the private `__size` attribute.
-        :return: The size of the object.
         """
         return self.__size
 
