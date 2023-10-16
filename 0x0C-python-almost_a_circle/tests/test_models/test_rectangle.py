@@ -2,9 +2,22 @@
 """Defines unittests for models/rectangle.py."""
 import unittest
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
+    """Unittests for testing instantiation of the Rectangle class."""
+
+    def test_rectangle_is_base(self):
+        self.assertIsInstance(Rectangle(10, 2), Base)
+
+    def test_no_args(self):
+        with self.assertRaises(TypeError):
+            Rectangle()
+
+    def test_one_arg(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1)
 
     def test_valid_instantiation(self):
         r = Rectangle(10, 20, 1, 2, 5)
