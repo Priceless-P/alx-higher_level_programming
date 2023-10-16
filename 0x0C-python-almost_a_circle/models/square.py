@@ -4,6 +4,7 @@
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """Represents a Sqaure"""
     def __init__(self, size, x=0, y=0, id=None):
@@ -33,6 +34,7 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
+
     def to_dictionary(self):
         """Returns the dictionary representation
         of the square class"""
@@ -42,9 +44,11 @@ class Square(Rectangle):
             'x': self.x,
             'y': self.y
         }
+
     def __str__(self):
         """Overrides the __str__ to return a custom message"""
         string = "[" + str(self.__class__.__name__) + "] "
-        string += "(" +(str(self.id)) + ")" + " " + str(self.x) + "/" + str(self.y)
+        string += "(" + (str(self.id)) + ")" + " " + str(self.x)\
+                      + "/" + str(self.y)
         string += " - " + str(self.width)
         return string

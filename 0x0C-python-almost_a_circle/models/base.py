@@ -46,16 +46,16 @@ class Base:
         Returns the list of the JSON string
         representation json_string
         """
-        if json_string is not None or json_string != []:
-            return json.loads(json_string)
-        else:
+        if json_string is None or json_string == "[]":
             return []
+        else:
+            return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all
         attributes already set"""
-        if dictionary and dictionary !={ }:
+        if dictionary and dictionary != {}:
             if cls.__name__ == "Square":
                 new = cls(1)
             else:
@@ -90,6 +90,7 @@ class Base:
                 w = csv.DictWriter(file, fieldnames=fields)
                 for object in list_objs:
                     w.writerow(object.to_dictionary())
+
     @classmethod
     def load_from_file_csv(cls):
         """ Return a list of classes instantiated from a CSV file.
@@ -104,9 +105,11 @@ class Base:
                     fields = ["id", "width", "height", "x", "y"]
                 else:
                     fields = ["id", "size", "x", "y"]
-                list_of_dicts = csv.DictReader(file, fieldnames=fields)
-                list_of_dicts = [dict([key, int(value)] for key, value in dict_.items()) \
-                                                        for dict_ in list_of_dicts]
+                list_of_dicts = csv.DictReader(file,
+                                               fieldnames=fields)
+                list_of_dicts = [dict([key, int(value)] for key,
+                                 value in dict_.items())
+                                 for dict_ in list_of_dicts]
                 return [cls.create(**dict_) for dict_ in list_of_dicts]
         except IOError:
             return []

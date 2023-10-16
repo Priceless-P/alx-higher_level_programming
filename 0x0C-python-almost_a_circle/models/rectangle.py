@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Defines a Rectangle class"""
 
-
 from models.base import Base
+
 
 class Rectangle(Base):
     """Represents a rectangle class"""
@@ -60,7 +60,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         if not isinstance(value, int):
-            raise ValueError("y must be an integer")
+            raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
@@ -83,7 +83,8 @@ class Rectangle(Base):
     def __str__(self):
         """Overrides the __str__ to return a custom message"""
         string = "[" + str(self.__class__.__name__) + "] "
-        string += "(" +(str(self.id)) + ")" + " " + str(self.__x) + "/" + str(self.__y)
+        string += "(" + (str(self.id)) + ")" + " " + str(self.__x)\
+                      + "/" + str(self.__y)
         string += " - " + str(self.__width) + "/" + str(self.__height)
         return string
 
@@ -97,6 +98,7 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
+
     def to_dictionary(self):
         """Returns the dictionary representation
         of the rectangle class"""
