@@ -67,7 +67,7 @@ class Rectangle(Base):
 
     def area(self):
         """Returns the area of a rectangle"""
-        return self.__width * self.__height
+        return self.width * self.height
 
     def display(self):
         """Prints the rectangle with '#' character"""
@@ -89,6 +89,7 @@ class Rectangle(Base):
         return string
 
     def update(self, *args, **kwargs):
+        """Update the Rectangle."""
         if args:
             attributes = ["id", "width", "height", "x", "y"]
             for id, arg in enumerate(args):
