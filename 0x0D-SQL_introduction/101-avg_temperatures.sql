@@ -1,6 +1,6 @@
 -- Displays the average temperature (Fahrenheit)
 -- by city ordered by temperature
 SELECT `city`, AVG(`value`) AS `avg_temp`
-FROM `temperature`
+FROM `temperatures`
 GROUP BY `city`
-ORDER BY `valavg_tempue` DESC;
+ORDER BY `avg_temp` DESC;
