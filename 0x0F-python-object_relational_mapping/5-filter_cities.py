@@ -9,16 +9,18 @@ import MySQLdb
 if __name__ == "__main__":
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     c = db.cursor()
-    state_name = MySQLdb.escape_string(sys.argv[4]).decode()
-    c.execute("""SELECT cities.name FROM cities JOIN states ON
-                states.id = cities.state_id
-                WHERE states.name
-                = '{}' ORDER BY cities.id""".format(state_name))
-    cities = c.fetchall()
-    result = []
-    for city in cities:
-        if city[4] == sys.argv[4]:
-            result.append(city[2])
+    query = """
+    SELECT cities.name FROM cities
+    JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
+    ORDER BY cities.id ASC
+    """
 
-    print(", ".join(result))
+    c.execute(query, (sys.argv[4],))
+
+    result = c.fetchall()
+    cities = ', '.join([city[0] for city in result])
+
+    print(cities)
+    c.close()
     db.close()
