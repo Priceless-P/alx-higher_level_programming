@@ -13,5 +13,5 @@ if __name__ == "__main__":
     c.execute("SELECT * FROM `states` ORDER BY `id`")
     states = c.fetchall()
     for state in states:
-        if state[1] == sys.argv[4]:
+        if state[1][0] == sys.argv[4]:
             print(state)
