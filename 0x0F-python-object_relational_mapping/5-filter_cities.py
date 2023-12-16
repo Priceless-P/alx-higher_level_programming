@@ -9,10 +9,11 @@ import MySQLdb
 if __name__ == "__main__":
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     c = db.cursor()
+    state_name = MySQLdb.escape_string(sys.argv[4]).decode()
     c.execute("""SELECT cities.name FROM cities JOIN states ON
-                 states.id=cities.states_id
-    WHERE states.name = {} ORDER BY cities.id ASC""".format(
-    MySQLdb.escape_string(sys.argv[4]).decode()))
+                states.id = cities.state_id
+                WHERE states.name
+                = '{}' ORDER BY cities.id""".format(state_name))
     cities = c.fetchall()
     for city in range(len(cities)):
         if (city != len(cities) - 1):

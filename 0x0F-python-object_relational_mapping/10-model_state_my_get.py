@@ -18,7 +18,8 @@ def get_states():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(State.id).filter(
+    state = None
+    states = session.query(State).filter(
                 State.name.like(sys.argv[4]))
 
     for state in states:

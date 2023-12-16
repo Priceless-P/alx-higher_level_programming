@@ -22,7 +22,7 @@ def get_states():
                 State.name.like("%a%"))
 
     for state in states:
-        print("{}:{}".format(state.id, state.name))
+        print("{}: {}".format(state.id, state.name))
     session.close()
 
 

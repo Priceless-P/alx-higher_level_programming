@@ -21,7 +21,7 @@ def get_states():
     states = session.query(State).order_by(State.id).all()
 
     for state in states:
-        print("{}:{}".format(state.id, state.name))
+        print("{}: {}".format(state.id, state.name))
     session.close()
 
 
