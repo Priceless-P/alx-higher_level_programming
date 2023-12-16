@@ -19,7 +19,7 @@ def get_cities():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    all = session.query(State, City).order_by(City.id).filter_by(
+    all = session.query(State, City).order_by(City.id).filter(
             City.state_id == State.id)
 
     for state, city in all:

@@ -15,11 +15,10 @@ if __name__ == "__main__":
                 WHERE states.name
                 = '{}' ORDER BY cities.id""".format(state_name))
     cities = c.fetchall()
-    for city in range(len(cities)):
-        if (city != len(cities) - 1):
-            print(cities[city][0] + ", ", end="")
-        else:
-            print(cities[city][0], end="")
-    print()
-    c.close()
+    result = []
+    for city in cities:
+        if city[4] == sys.argv[4]:
+            result.append(city[2])
+
+    print(", ".join(result))
     db.close()
