@@ -8,11 +8,12 @@ import sys
 import requests
 
 
-url = sys.argv[1]
+if __name__ == '__main__':
+    url = sys.argv[1]
 
-response = requests.get(url)
+    response = requests.get(url)
 
-if response.ok:
-    print(response.text)
-else:
-    print("Error code: {}".format(response.status_code))
+    if response.ok:
+        print(response.text)
+    else:
+        print("Error code: {}".format(response.status_code))

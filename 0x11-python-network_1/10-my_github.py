@@ -7,12 +7,13 @@ import sys
 import requests
 
 
-url = "https://api.github.com/user"
-username = sys.argv[1]
-password = sys.argv[2]
-header = {
-    'Accept': "application/vnd.github+json",
-    'X-GitHub-Api-Version': "2022-11-28"}
+if __name__ == '__main__':
+    url = "https://api.github.com/user"
+    username = sys.argv[1]
+    password = sys.argv[2]
+    header = {
+        'Accept': "application/vnd.github+json",
+        'X-GitHub-Api-Version': "2022-11-28"}
 
-response = requests.get(url, headers=header, auth=(username, password))
-print(response.json()['id'])
+    response = requests.get(url, headers=header, auth=(username, password))
+    print(response.json()['id'])
