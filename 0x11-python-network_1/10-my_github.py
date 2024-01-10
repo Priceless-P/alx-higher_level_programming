@@ -5,6 +5,7 @@
 """
 import sys
 import requests
+from requests.auth import HTTPBasicAuth
 
 
 if __name__ == '__main__':
@@ -14,6 +15,7 @@ if __name__ == '__main__':
     header = {
         'Accept': "application/vnd.github+json",
         'X-GitHub-Api-Version': "2022-11-28"}
+    auth = HTTPBasicAuth(username, password)
 
-    response = requests.get(url, headers=header, auth=(username, password))
-    print(response.json()['id'])
+    response = requests.get(url, headers=header, auth=auth)
+    print(response.json().get('id'))

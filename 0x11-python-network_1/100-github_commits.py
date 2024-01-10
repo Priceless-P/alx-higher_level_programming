@@ -16,10 +16,13 @@ if __name__ == '__main__':
         'Authorization': "Bearer <Token>",
         'X-GitHub-Api-Version': "2022-11-28"
     }
-    params = {'per_page': 10}
-    response = requests.get(url, headers=header, params=params)
+
+    response = requests.get(url, headers=header)
     commits = response.json()
-    for commit in commits:
-        sha = commit['sha']
-        author_name = commit['commit']['author']['name']
-        print("{}: {}".format(sha, author_name))
+    try:
+        for i in range(10):
+            sha = commits[i].get("sha")
+            author_name = commits[i].get("commit").get("author").get("name")
+            print("{}: {}".format(sha, author_name))
+    except IndexError:
+        pass
