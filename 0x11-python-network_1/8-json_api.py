@@ -10,10 +10,7 @@ import requests
 
 if __name__ == '__main__':
     url = "http://0.0.0.0:5000/search_user"
-    if len(sys.argv) == 2:
-        q = sys.argv[1]
-    else:
-        q = ""
+    q = "" if len(sys.argv) == 1 else sys.argv[1]
     data = {'q': q}
 
     response = requests.post(url, data=data)
