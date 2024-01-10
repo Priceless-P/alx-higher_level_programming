@@ -11,13 +11,9 @@ if __name__ == '__main__':
     repo = sys.argv[1]
     owner = sys.argv[2]
     url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo)
-    header = {
-        'Accept': "application/vnd.github+json",
-        'Authorization': "Bearer <Token>",
-        'X-GitHub-Api-Version': "2022-11-28"
-    }
 
-    response = requests.get(url, headers=header)
+
+    response = requests.get(url)
     commits = response.json()
     try:
         for i in range(10):
