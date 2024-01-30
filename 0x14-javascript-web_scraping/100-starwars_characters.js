@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 /**
  * Prints all characters of a Star Wars movie
  * @param {string} str - the movie ID
