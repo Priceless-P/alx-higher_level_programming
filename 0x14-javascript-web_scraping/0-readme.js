@@ -4,10 +4,10 @@
  * @param {string} file - The file to read.
  */
 
-const fs = require("fs");
+const fs = require('fs');
 const file = process.argv[2];
 
-fs.readFile(file, "utf8", (err, data) => {
+fs.readFile(file, 'utf8', (err, data) => {
   if (data) {
     console.log(data);
     return;

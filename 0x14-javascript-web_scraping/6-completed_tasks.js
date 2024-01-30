@@ -4,7 +4,7 @@
  * @param {string} str - API URL: https://jsonplaceholder.typicode.com/todos
  */
 
-const request = require("request");
+const request = require('request');
 const url = process.argv[2];
 
 request.get(url, (err, response) => {

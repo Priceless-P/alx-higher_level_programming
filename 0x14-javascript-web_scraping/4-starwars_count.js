@@ -6,7 +6,7 @@
  * API: https://swapi-api.alx-tools.com/api/films/
  */
 
-const request = require("request");
+const request = require('request');
 const url = process.argv[2];
 
 request.get(url, (err, response) => {
@@ -19,7 +19,7 @@ request.get(url, (err, response) => {
     for (let i = 0; i < results.length; i++) {
       const character = results[i].characters;
       for (let j = 0; j < character.length; j++) {
-        if (character[j].includes("18")) {
+        if (character[j].includes('18')) {
           count++;
         }
       }
