@@ -12,7 +12,6 @@ request.get(url, (err, response) => {
     console.error(err);
   } else {
     const tasks = JSON.parse(response.body);
-    
     const usersCompletedTasks = {};
     tasks.forEach(task => {
       if (task.completed) {
