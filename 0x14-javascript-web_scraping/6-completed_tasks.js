@@ -11,29 +11,17 @@ request.get(url, (err, response) => {
   if (err) {
     console.error(err);
   } else {
-    const res = JSON.parse(response.body);
-    const userIds = [];
-    for (let i = 0; i < res.length; i++) {
-      userIds.push(res[i].userId);
-    }
-
-    const uniqueUserIds = new Set(userIds);
-    const completedSum = [];
+    const tasks = JSON.parse(response.body);
+    
     const usersCompletedTasks = {};
-
-    for (const uniqueUserId of uniqueUserIds) {
-      let userCompleted = 0;
-      for (let i = 0; i < res.length; i++) {
-        if (uniqueUserId === res[i].userId) {
-          if (res[i].completed) {
-            userCompleted++;
-          }
+    tasks.forEach(task => {
+      if (task.completed) {
+        if (usersCompletedTasks[task.userId]) {
+          usersCompletedTasks[task.userId]++;
+        } else {
+          usersCompletedTasks[task.userId] = 1;
         }
       }
-      completedSum.push(userCompleted);
-    }
-    uniqueUserIds.forEach((key, index) => {
-      usersCompletedTasks[key] = completedSum[index - 1];
     });
     console.log(usersCompletedTasks);
   }
